@@ -12,12 +12,10 @@ const list = {
 function pushNode(value) {
   const newNode = new Node(value);
 
-  if (!list.head) list.head = newNode;
-  else {
-    let currentNode = list.head;
-    while (currentNode.next) currentNode = currentNode.next;
-    currentNode.next = newNode;
-  }
+  if (!list.head && (list.head = newNode)) return;
+  let currentNode = list.head;
+  while (currentNode.next) currentNode = currentNode.next;
+  currentNode.next = newNode;
 }
 
 function removeNode(value) {
