@@ -28,11 +28,8 @@ function removeNode(value) {
     previousNode = currentNode;
     currentNode = currentNode.next;
   }
-  if (previousNode) {
-    previousNode.next = currentNode.next;
-  } else {
-    list.head = null;
-  }
+  if (previousNode) previousNode.next = currentNode.next;
+  else list.head = null;
 }
 
 pushNode(1);
