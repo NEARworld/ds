@@ -25,6 +25,14 @@ class SingleLinkedList {
     if (previousNode) previousNode.next = currentNode.next;
     else list.head = null;
   }
+
+  *traverse() {
+    let currentNode = this.head;
+    while (currentNode) {
+      yield currentNode.value;
+      currentNode = currentNode.next;
+    }
+  }
 }
 
 class Node {
@@ -42,8 +50,6 @@ list.append(3);
 list.append(4);
 list.append(5);
 
-let currentNode = list.head;
-while (currentNode) {
-  console.log(currentNode.value);
-  currentNode = currentNode.next;
+for (const node of list.traverse()) {
+  console.log(node);
 }
