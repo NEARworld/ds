@@ -1,3 +1,32 @@
+class SingleLinkedList {
+  constructor() {
+    this.head = null;
+  }
+
+  append(value) {
+    const newNode = new Node(value);
+
+    if (!list.head && (list.head = newNode)) return;
+    let currentNode = list.head;
+    while (currentNode.next) currentNode = currentNode.next;
+    currentNode.next = newNode;
+  }
+
+  remove(value) {
+    if (!list.head) return "list is empty";
+
+    let currentNode = list.head;
+    let previousNode = null;
+
+    while (currentNode && currentNode.value !== value) {
+      previousNode = currentNode;
+      currentNode = currentNode.next;
+    }
+    if (previousNode) previousNode.next = currentNode.next;
+    else list.head = null;
+  }
+}
+
 class Node {
   constructor(value) {
     this.value = value;
@@ -5,41 +34,13 @@ class Node {
   }
 }
 
-const list = {
-  head: null,
-};
+const list = new SingleLinkedList();
 
-function pushNode(value) {
-  const newNode = new Node(value);
-
-  if (!list.head && (list.head = newNode)) return;
-  let currentNode = list.head;
-  while (currentNode.next) currentNode = currentNode.next;
-  currentNode.next = newNode;
-}
-
-function removeNode(value) {
-  if (!list.head) return "list is empty";
-
-  let currentNode = list.head;
-  let previousNode = null;
-
-  while (currentNode && currentNode.value !== value) {
-    previousNode = currentNode;
-    currentNode = currentNode.next;
-  }
-  if (previousNode) previousNode.next = currentNode.next;
-  else list.head = null;
-}
-
-pushNode(1);
-pushNode(2);
-pushNode(3);
-pushNode(4);
-pushNode(5);
-console.log(list);
-
-removeNode(5);
+list.append(1);
+list.append(2);
+list.append(3);
+list.append(4);
+list.append(5);
 
 let currentNode = list.head;
 while (currentNode) {
