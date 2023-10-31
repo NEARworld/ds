@@ -41,6 +41,16 @@ class DoubleLinkedList {
     if (currentNode) newNode.next = currentNode.next;
     else this.tail = newNode;
   }
+
+  *traverse() {
+    if (this.head === null) return;
+
+    let currentNode = this.head;
+    while (currentNode) {
+      yield currentNode;
+      currentNode = currentNode.next;
+    }
+  }
 }
 
 class Node {
@@ -57,6 +67,7 @@ dl.insert(200, 1);
 dl.insert(300, 2);
 dl.insert(400, 3);
 dl.insert(500, 1);
-console.log(dl.head);
-console.log(dl.head.next);
-console.log(dl.head.next.next);
+
+for (const node of dl.traverse()) {
+  console.log(node);
+}
