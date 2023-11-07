@@ -6,16 +6,18 @@ class BinaryTree {
   }
 
   insert(startNode, value) {
+    if (!value) return;
+
     const newNode = new BinaryTreeNode(value);
-    // 루트가 없는 경우 루트에 삽입
     if (this.root === null) return (this.root = newNode);
-    // 왼쪽 오른쪽 자식 모두 없거나 왼쪽 자식만 없는 경우
-    if (!startNode.left) return (startNode.left = newNode);
-    // 오른쪽 자식만 없는 경우
-    if (!startNode.right) return (startNode.right = newNode);
-    // 양쪽 모두 있는 경우
-    // 왼쪽 노드에 삽입
-    this.insert(startNode.left, value);
+
+    if (!startNode) return;
+    let currentNode = startNode;
+
+    if (!currentNode.left) return (currentNode.left = newNode);
+    if (!currentNode.right) return (currentNode.right = newNode);
+
+    this.insert(currentNode.left, value);
   }
 
   isTreeEmpty() {
@@ -57,13 +59,11 @@ class BinaryTree {
 }
 
 const bt = new BinaryTree();
+const values = [10, 20, 30, 40, 50, 60];
 
-bt.insert(bt.root, 10);
-bt.insert(bt.root, 20);
-bt.insert(bt.root, 30);
-bt.insert(bt.root, 40);
-bt.insert(bt.root, 50);
-bt.insert(bt.root, 60);
+for (const value of values) {
+  bt.insert(bt.root, value);
+}
 
 console.log('inOrderTraverse starts');
 bt.inOrderTraverse(bt.root);
