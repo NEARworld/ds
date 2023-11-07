@@ -18,8 +18,16 @@ class BinaryTree {
     this.insert(startNode.left, value);
   }
 
+  isTreeEmpty() {
+    if (this.root === null) {
+      console.log('This tree is empty');
+      return true;
+    }
+    return false;
+  }
+
   inOrderTraverse(startNode) {
-    if (this.root === null) return 'The tree is empty.';
+    if (this.isTreeEmpty()) return null;
     if (startNode.left) this.inOrderTraverse(startNode.left);
     console.log(startNode.value);
     if (startNode.right) this.inOrderTraverse(startNode.right);
