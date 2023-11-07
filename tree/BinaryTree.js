@@ -1,6 +1,6 @@
 import { BinaryTreeNode } from './BinaryTreeNode.js';
 
-class BinaryTree {
+export class BinaryTree {
   constructor() {
     this.root = null;
   }
@@ -57,15 +57,3 @@ class BinaryTree {
     console.log(startNode.value);
   }
 }
-
-const bt = new BinaryTree();
-const values = [10, 20, 30, 40, 50, 60];
-
-for (const value of values) {
-  bt.insert(bt.root, value);
-}
-
-console.log('inOrderTraverse starts');
-bt.inOrderTraverse(bt.root);
-console.log('traverseOnlyLeftTree starts');
-bt.traverseOnlyLeftSubTree(bt.root);

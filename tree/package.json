@@ -1,7 +1,7 @@
 {
-  "main": "BinaryTree.js",
+  "main": "index.js",
   "scripts": {
-    "start": "node ./BinaryTree.js"
+    "start": "node ./index.js"
   },
   "type": "module"
 }
