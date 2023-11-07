@@ -40,6 +40,20 @@ class BinaryTree {
     console.log(startNode.value);
     if (startNode.right) this.inOrderTraverse(startNode.right);
   }
+
+  preOrderTraverse(startNode) {
+    if (this.isTreeEmpty()) return null;
+    console.log(startNode.value);
+    if (startNode.left) this.preOrderTraverse(startNode.left);
+    if (startNode.right) this.preOrderTraverse(startNode.right);
+  }
+
+  postOrderTraverse(startNode) {
+    if (this.isTreeEmpty() || startNode === null) return null;
+    if (startNode.left) this.postOrderTraverse(startNode.left);
+    if (startNode.right) this.postOrderTraverse(startNode.right);
+    console.log(startNode.value);
+  }
 }
 
 const bt = new BinaryTree();
