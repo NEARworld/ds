@@ -26,6 +26,14 @@ class BinaryTree {
     return false;
   }
 
+  traverseOnlyLeftSubTree(startNode) {
+    if (this.isTreeEmpty()) return null;
+    if (startNode) {
+      console.log(startNode.value);
+      this.traverseOnlyLeftSubTree(startNode.left);
+    }
+  }
+
   inOrderTraverse(startNode) {
     if (this.isTreeEmpty()) return null;
     if (startNode.left) this.inOrderTraverse(startNode.left);
@@ -36,7 +44,14 @@ class BinaryTree {
 
 const bt = new BinaryTree();
 
-bt.insert(bt.root, 10); // 루트 노드 삽입
+bt.insert(bt.root, 10);
 bt.insert(bt.root, 20);
 bt.insert(bt.root, 30);
+bt.insert(bt.root, 40);
+bt.insert(bt.root, 50);
+bt.insert(bt.root, 60);
+
+console.log('inOrderTraverse starts');
 bt.inOrderTraverse(bt.root);
+console.log('traverseOnlyLeftTree starts');
+bt.traverseOnlyLeftSubTree(bt.root);
