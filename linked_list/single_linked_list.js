@@ -1,4 +1,4 @@
-class SingleLinkedList {
+export class SingleLinkedList {
   constructor() {
     this.head = null;
   }
@@ -13,7 +13,7 @@ class SingleLinkedList {
   }
 
   remove(value) {
-    if (!list.head) return "list is empty";
+    if (!list.head) return 'list is empty';
 
     let currentNode = list.head;
     let previousNode = null;
@@ -35,21 +35,9 @@ class SingleLinkedList {
   }
 }
 
-class Node {
+export class Node {
   constructor(value) {
     this.value = value;
     this.next = null;
   }
-}
-
-const list = new SingleLinkedList();
-
-list.append(1);
-list.append(2);
-list.append(3);
-list.append(4);
-list.append(5);
-
-for (const node of list.traverse()) {
-  console.log(node);
 }
