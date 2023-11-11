@@ -23,4 +23,8 @@ export class Queue extends SingleLinkedList {
     node.next = null;
     return node;
   }
+
+  peek() {
+    console.log(this.head);
+  }
 }

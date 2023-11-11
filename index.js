@@ -2,14 +2,12 @@ import { Queue } from './queue/queue.js';
 
 const queue = new Queue();
 
-queue.enqueue(10);
-queue.enqueue(20);
-queue.enqueue(30);
-queue.enqueue(40);
-queue.enqueue(50);
+const values = [10, 20, 30, 40, 50];
+values.forEach((value) => queue.enqueue(value));
 
 for (const data of queue.traverse()) {
   console.log(data);
 }
 
 console.log(queue.dequeue());
+queue.peek();

@@ -60,14 +60,3 @@ class Node {
     this.prev = null;
   }
 }
-
-const dl = new DoubleLinkedList();
-dl.insert(100, 0);
-dl.insert(200, 1);
-dl.insert(300, 2);
-dl.insert(400, 3);
-dl.insert(500, 1);
-
-for (const node of dl.traverse()) {
-  console.log(node);
-}
