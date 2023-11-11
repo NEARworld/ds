@@ -11,3 +11,5 @@ queue.enqueue(50);
 for (const data of queue.traverse()) {
   console.log(data);
 }
+
+console.log(queue.dequeue());

@@ -15,4 +15,12 @@ export class Queue extends SingleLinkedList {
     while (currentNode.next) currentNode = currentNode.next;
     currentNode.next = newNode;
   }
+
+  dequeue() {
+    if (this.head === null) return null;
+    const node = this.head;
+    this.head = node.next;
+    node.next = null;
+    return node;
+  }
 }
