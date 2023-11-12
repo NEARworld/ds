@@ -9,5 +9,5 @@ for (const data of queue.traverse()) {
   console.log(data);
 }
 
-console.log(queue.dequeue());
+console.log('dequeued node:', queue.dequeue());
 queue.peek();

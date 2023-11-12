@@ -8,12 +8,9 @@ export class Queue extends SingleLinkedList {
   enqueue(data) {
     const newNode = new Node(data);
 
-    if (this.head === null) return (this.head = newNode);
-
-    let currentNode = this.head;
-
-    while (currentNode.next) currentNode = currentNode.next;
-    currentNode.next = newNode;
+    if (this.tail === null) return (this.head = this.tail = newNode);
+    this.tail.next = newNode;
+    this.tail = this.tail.next;
   }
 
   dequeue() {
@@ -25,6 +22,6 @@ export class Queue extends SingleLinkedList {
   }
 
   peek() {
-    console.log(this.head);
+    return this.head;
   }
 }

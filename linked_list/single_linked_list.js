@@ -1,6 +1,7 @@
 export class SingleLinkedList {
   constructor() {
     this.head = null;
+    this.tail = null;
   }
 
   append(value) {
