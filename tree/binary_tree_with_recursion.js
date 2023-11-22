@@ -13,13 +13,13 @@ b.left = c;
 c.left = d;
 c.right = e;
 
-function depthFirstTraverse(root) {
-  const stack = [root];
-  while (stack.length > 0) {
-    const current = stack.pop();
-    if (current.right) stack.push(current.right);
-    if (current.left) stack.push(current.left);
-  }
+function depthFirstTraverse2(root) {
+  if (root === null) return [];
+
+  const leftVals = depthFirstTraverse2(root.left);
+  const rightVals = depthFirstTraverse2(root.right);
+
+  return [root.value, ...leftVals, ...rightVals];
 }
 
-depthFirstTraverse(bt.root);
+depthFirstTraverse2(bt.root).forEach((val) => console.log(val));
