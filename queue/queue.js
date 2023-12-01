@@ -24,4 +24,8 @@ export class Queue extends SingleLinkedList {
   peek() {
     return this.head;
   }
+
+  clear() {
+    this.head = null;
+  }
 }
